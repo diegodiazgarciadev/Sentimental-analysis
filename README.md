@@ -49,6 +49,7 @@ In this development we are going to create an API which will allow us to :
     /sa/quotesbysex/<sex> (M,F,B) *
     /sa/br/quotes'  (table)
     /sa/br/quotes_chart (chart)   
+    /sa/br/quotesbysex_chart
     
     /br/quotes
 
