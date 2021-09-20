@@ -36,6 +36,15 @@ In this development we are going to create an API which will allow us to :
       TEMPLATES: 
         * templates.html we will use to display the plots 
         
+        
+        
+    ### Bonus
+     As a bonus, in this project I have done some extra things:
+      * Create the data base, and tables from a function that execute sql alquemy actions.
+      * Create a new column for the tokenize sentences so that my endpoint will be respond pretty quick
+      * Send response to the browser as a table, so that the user wil be able to check the info in a very easy way
+      * show the plos from seaborn on the browser
+        
     ## ENDPOINTS
     
     ["GET"]
