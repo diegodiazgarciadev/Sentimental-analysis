@@ -38,13 +38,26 @@ In this development we are going to create an API which will allow us to :
         
     ## ENDPOINTS
     
+    ["GET"]
+    
     /quotes
     /quotesbyartist/<artist>
+    /quotesbysex/<sex> *
+    
+    /sa/quote * (any sentence) *
     /sa/quotes
-    /sa/quotesbysex
-    /br/quotes', methods=("GET")
-    /br/quotessa', methods=("GET")
-    /insertartist", methods=["POST"]
-    /insertmoviequote", methods=["POST"]
+    /sa/quotesbysex/<sex> (M,F,B) *
+    /sa/br/quotes'  (table)
+    /sa/br/quotes_chart (chart)   
+    
+    /br/quotes
+
+    ["POST"]
+    /insertartist
+    /insertmoviequote
        
   
+
+
+
+
