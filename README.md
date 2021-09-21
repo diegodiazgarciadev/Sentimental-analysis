@@ -19,7 +19,7 @@ In this development we are going to create an API which will allow us to :
       * From browser (Table)
       * From browser (Chart)
       
-  ## project structure
+  ## Project structure
     We have several directories:
       SRC:
         * checks.py: We create a check funtion for every entity we are creating. We will only check if the entity exist so far, 
@@ -36,24 +36,45 @@ In this development we are going to create an API which will allow us to :
         * movie_quotes.csv : File with the data we will be using
       TEMPLATES: 
         * templates.html we will use to display the plots 
+      main.py
+        * Endpoints
+      endpoints_test.ipynb
+        * Testing each endpoint doing request from a notebook with the explation of every function used.
+      documentation.md
+        * Endpoints documentation
         
         
         
-    ### Bonus
+## Bonus
      As a bonus, in this project I have done some extra things:
       * Create the data base, and tables from a function that execute sql alquemy actions.
       * Create a new column for the tokenize sentences so that my endpoint will be respond pretty quick
       * Send response to the browser as a table, so that the user wil be able to check the info in a very easy way
       * show the plos from seaborn on the browser
       
-  ## Conslusions
+## Conslusions
    About the results of the sentimental analysis of my quotes dataset, we can see something similar to a normal distrubution in the total of values of the analysis, values is around 0.
    About the libraries we have used, I really think they are not the best ones. I have checked manually the values of sentences and tried new ones and
    many times the result is not what I was expecting. 
    There are other techniques much better that take into account the positions of the words(tokens) even the puntuation. So my conslusion is I won't use
    these libraries we have used here in a production system.
+   
+ ## Libraries used 
+  * Flask
+  * markdown
+  * io
+  * base64
+  * matplotlib
+  * seaborn
+  * pandas
+  * TextBlob
+  * re
+  * spacy
+  * request
+
+  
         
-    ## ENDPOINTS
+## ENDPOINTS
     
     URL : http://127.0.0.1:5000/
     
