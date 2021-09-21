@@ -2,7 +2,7 @@
     
     URL : http://127.0.0.1:5000/
     
-    ["GET"]
+#### ["GET"]
     
      /quotes 
       Return  all quotes of our database
@@ -22,7 +22,7 @@
     /sa/quotesbysex/<sex>
        return all quotes by sex with their Sentimental analsysis (M, F, B = Both)
        
-    ### The 4 methods belowr are only for using with a browser:
+ #### The 4 methods below are only for using with a browser:
         
     /br/quotes
        Return a table on the browswer with all the quotes in DB
@@ -35,7 +35,7 @@
     
    
 
-    ["POST"]
+#### ["POST"]
     
     /insertartist
       insert an artist by artist name:
