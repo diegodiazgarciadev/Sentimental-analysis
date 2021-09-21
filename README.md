@@ -52,7 +52,7 @@ In this development we are going to create an API which will allow us to :
       * Send response to the browser as a table, so that the user wil be able to check the info in a very easy way
       * show the plos from seaborn on the browser
       
-## Conslusions
+## Conclusions
    About the results of the sentimental analysis of my quotes dataset, we can see something similar to a normal distrubution in the total of values of the analysis, values is around 0.
    About the libraries we have used, I really think they are not the best ones. I have checked manually the values of sentences and tried new ones and
    many times the result is not what I was expecting. 
@@ -78,7 +78,7 @@ In this development we are going to create an API which will allow us to :
     
     URL : http://127.0.0.1:5000/
     
-    ["GET"]
+#### ["GET"]
     
      /quotes 
       Return  all quotes of our database
@@ -98,20 +98,23 @@ In this development we are going to create an API which will allow us to :
     /sa/quotesbysex/<sex>
        return all quotes by sex with their Sentimental analsysis (M, F, B = Both)
        
-    ### The 4 methods belowr are only for using with a browser:
+#### The 4 methods below are only for using with a browser:
         
     /br/quotes
        Return a table on the browswer with all the quotes in DB
+       
     /sa/br/quotes
        Return a table on the browswer with all the quotes in DB and their Sentimental analsysis values
+       
     /sa/br/quotes_chart 
        Display a sns chart (histogram) with the Sentimental analsysis of all quotes
+       
     /sa/br/quotesbysex_chart
        Display a sns chart (histogram) with the Sentimental analsysis of all quotes comparing both sex (using hue)
     
    
 
-    ["POST"]
+#### ["POST"]
     
     /insertartist
       insert an artist by artist name:
