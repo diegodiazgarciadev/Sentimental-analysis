@@ -13,6 +13,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    """
+    Display the documentation of our API
+    """
     readme_file = open("documentation.md", "r")
     md_template = markdown.markdown(readme_file.read(), extensions=["fenced_code"])
     return md_template
@@ -20,43 +23,77 @@ def index():
 
 @app.route("/quotes")
 def quotes():
+    """
+    Return  all quotes from our database
+    """
     quotes = sql.getallquotes()
     return quotes
 
 @app.route("/quotesbyartist/<artist>")
 def quotesbyartist(artist):
+    """
+    Return quotes by an artist . User must set the artist name
+    :param artist: artist name
+    :return: json with the quotes of this artist
+    """
     quotes = sql.quotesbyartist(artist)
     return quotes
 
 @app.route("/quotesbysex/<sex>")
 def quotesbysex(sex):
+    """
+    Return all quotes from a specific sex. User must set the sex (M,F)
+    :param sex: (M or F)
+    :return: json with the quotes by Sex
+    """
     quotes = sql.quotesbysex(sex)
     return quotes
 
 @app.route("/sa/quotes")
 def sentimentalanalysquotes():
+    """
+     Return all quotes on DB with their Sentimental analsysis
+    :return: json with all quotes and its Sentimental analsysis
+    """
     quotes_sn = sql.getallquotessa()
     return quotes_sn
 
 @app.route("/sa/<quote>")
 def sentimentalanalys(quote):
+    """
+    Return Any string wrote in english will be evaulate y return the sentimental analsys of that string. Value between [-1,1]
+    :param quote: string with the quote to evaluate
+    :return: Sentimental analsysis value [-1,1]
+    """
     sa = ut.getsentimentalanalysis(quote)
     return {"quote":quote, "Sentimental Analysis": sa}
 
 @app.route("/sa/quotesbysex/<sex>")
 def quotesbysexsa(sex):
+    """
+    return all quotes by sex with their Sentimental analsysis (M, F, B = Both)
+    :param sex: (M, F, B = Both)
+    :return: quotes by sex with thier Sentimental analysis
+    """
     quotes_sa = sql.quotesbysexsa(sex)
     return quotes_sa
 
 
 
-@app.route('sa/br/quotes', methods=("POST", "GET"))
+@app.route('/sa/br/quotes', methods=("POST", "GET"))
 def html_table_guotesna():
+    """
+    Return a table on the browswer with all the quotes in DB
+    :return: table with all quotes
+    """
     quotessa_df = sql.getallquotessa(True)
     return quotessa_df.to_html(header="true", table_id="table")
 
-@app.route('sa/br/quotes_chart',methods=['GET'])
+@app.route('/sa/br/quotes_chart',methods=['GET'])
 def quotessa_chart():
+    """
+    Return a table on the browswer with all the quotes in DB and their Sentimental analsysis values
+    """
     img = io.BytesIO()
     quotes_sn = sql.getallquotessa(True)
     sns.histplot(quotes_sn["sentiment"], kde=True)
@@ -68,8 +105,12 @@ def quotessa_chart():
 
     return render_template("index.html",plot_url=plot_url)
 
-@app.route('sa/br/quotesbysex_chart',methods=['GET'])
+@app.route('/sa/br/quotesbysex_chart',methods=['GET'])
 def quotesbysexsa_chart():
+    """
+    Display a sns chart (histogram) with the Sentimental analsysis of all quotes
+
+    """
     img = io.BytesIO()
     quotes_sn = sql.quotesbysexsa("B")
     df = pd.DataFrame(eval(quotes_sn))
@@ -83,18 +124,30 @@ def quotesbysexsa_chart():
 
 @app.route("/insertartist", methods=["POST"])
 def newartist():
+    """
+    insert an artist by artist name:
+    :return: {"artist": artist, "id": id, "msg": msg}
+    """
     artist = request.form.get("artist")
     id, msg = sql.insertartist(artist)
     return {"artist": artist, "id": id, "msg": msg}
 
 @app.route("/deleteartist", methods=["POST"])
 def deleteartist():
+    """
+    Delete an artist by artist name
+    :return:  {"artist": artist, "id": id, "msg": msg}
+    """
     artist = request.form.get("artist")
     id, msg = sql.deleteartist(artist)
     return {"artist": artist, "id": id, "msg": msg}
 
 @app.route("/updateartist", methods=["POST"])
 def updateartist():
+    """
+    Update an artist by artist name
+    :return: "artist": artist, "artist_new": artist_new, "msg": msg}
+    """
     artist = request.form.get("artist")
     artist_new = request.form.get("artist_new")
     id, msg = sql.updateartist(artist,artist_new)
@@ -102,6 +155,10 @@ def updateartist():
 
 @app.route("/insertmoviequote", methods=["POST"])
 def newmoviequote():
+    """
+    Insert a quote for a movie:
+    :return: movie": movie, "quote": quote, "id": id_movie, "msg": msg4}
+    """
     artist = request.form.get("artist")
     character = request.form.get("character")
     quote = request.form.get("quote")
