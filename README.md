@@ -2,11 +2,12 @@
 
 ## Introduction
 
-We are going to do a sentimental analysis of all catching quotes in the movie history.
+We are going to do a sentimental analysis of the top 100 quotations in American cinema. This dataset comes from
+the wikipedia [https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movie_Quotes]
 
-We will do the analysis of each quote checking if there are more positve quotes than negatives or the other way round.
 
-We are going to check if Males quotes are more or less positives against Female quotes.
+We will do the analysis of each quote checking if there are more positve quotes than negatives or the other way round. Following the same style 
+we are going to check if Males quotes are more or less positives against Female quotes.
 
 In this development we are going to create an API which will allow us to :
   * Insert data in DB
