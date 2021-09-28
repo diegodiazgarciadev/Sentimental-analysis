@@ -1,9 +1,8 @@
-# Sentimental-analysis
+# Sentimental-analysis API 
 
 ## Introduction
 
-We are going to do a sentimental analysis of the top 100 quotations in American cinema. This dataset comes from
-the wikipedia [https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movie_Quotes]
+We are going to do a sentimental analysis of the top 100 quotations in American cinema creating an API which could be used to get that information. This dataset comes from the wikipedia [https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movie_Quotes]
 
 
 We will do the analysis of each quote checking if there are more positve quotes than negatives or the other way round. Following the same style 
@@ -47,10 +46,10 @@ In this development we are going to create an API which will allow us to :
         
 ## Bonus
      As a bonus, in this project I have done some extra things:
-      * Create the data base, and tables from a function that execute sql alquemy actions.
-      * Create a new column for the tokenize sentences so that my endpoint will be respond pretty quick
-      * Send response to the browser as a table, so that the user wil be able to check the info in a very easy way
-      * show the plos from seaborn on the browser
+      * Create automatically the data base and tables from a function that execute sql alquemy actions.
+      * Create a new column for the tokenize sentences so that my endpoint will be respond pretty quick.
+      * Send response to the browser as a table, so that the user wil be able to check the info in a very easy way.
+      * show the plots from seaborn on the browser
       
 ## Conclusions
    About the results of the sentimental analysis of my quotes dataset, we can see something similar to a normal distrubution in the total of values of the analysis, values is around 0.
